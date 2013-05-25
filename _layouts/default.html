@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span9">
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </div>
+      <div class="span3">
+        <h3>Meetups I'm involved with</h3>
+        <ul>
+          <li>
+            <a href="http://www.meetup.com/IndyBigData/">Indy Big Data</a>
+          </li>
+          <li>
+            <a href="http://www.meetup.com/dsindy/">Data Science Indy</a>
+          </li>
+          <li>
+            <a href="http://www.meetup.com/IndyWebPerf/">Indianapolis Web Performance Group</a>
+          </li>
+        </ul>
+        
+        <h3>Personal Pages</h3>
+        <ul>
+          <li>
+            <a href="https://github.com/stetzer">GitHub</a>
+          </li>
+          <li>
+            <a href="http://www.linkedin.com/in/markstetzer/">LinkedIn</a>
+          </li>
+        </ul>
+        
+        <!-- Twitter embedded timeline -->
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/stetzer" data-widget-id="338136940161417216">Tweets by @stetzer</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+      </div>
+    </div>
+  </div>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
