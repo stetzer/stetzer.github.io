@@ -4,13 +4,25 @@
 	<title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+  <style type="text/css">
+    .blog-header {
+      margin-bottom: 0;
+      padding: 20px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="hero-unit blog-header">
+    <h1>Mark Stetzer's Blog</h1>
+    <p>My semi-random thoughts on big data, data science, Legos, and just about anything else someone would label nerdy...</p>
+  </div>
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span9">
-        <h1>{{ page.title }}</h1>
+        {% if page.path != "index.html" %}
+        <h2>{{ page.title }}</h2>
+        {% endif %}
         {{ content }}
       </div>
       <div class="span3">
