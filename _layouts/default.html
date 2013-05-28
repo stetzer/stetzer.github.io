@@ -49,6 +49,18 @@
         <strong>Tagged:</strong> {{ page.tags | array_to_sentence_string }}
         </p>
         {% endif %}
+
+        <div class="well">
+          <a class="socialite twitter-share" href="http://twitter.com/share" data-url="http://stetzer.github.io{{ page.url }}">
+            Share on Twitter
+          </a>
+          <a class="socialite facebook-like" href="http://www.facebook.com/sharer.php?u=http://stetzer.github.io/{{ page.url }}" data-href="http://stetzer.github.io{{ page.url }}">
+            Like on Facebook
+          </a>
+          <a class="socialite googleplus-one" href="https://plus.google.com/share?url=http%3A%2F%2Fstetzer.github.io{{ page.url | uri_escape }}" data-href="http://stetzer.github.io{{ page.url }}">
+            +1 on Google+
+          </a>
+        </div>
       </div>
       <div class="span3">
         <h3>Meetups I'm involved with</h3>
@@ -83,5 +95,12 @@
   </div>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="/js/socialite.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  Socialite.load();
+});
+</script>
 </body>
 </html>
