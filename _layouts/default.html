@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
   <style type="text/css">
+    .tag-footer {
+      padding-top: 25px;
+    }
     .blog-header {
       margin-bottom: 0;
       padding: 20px;
+    }
+    table th, table td {
+      padding: 4px 5px;
+    }
+    table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th {
+      background-color: #f9f9f9;
     }
   </style>
   <script>
@@ -31,8 +40,15 @@
       <div class="span9">
         {% if page.path != "index.html" %}
         <h2>{{ page.title }}</h2>
+        <h6>{{ page.date | date_to_long_string }}</h6>
         {% endif %}
         {{ content }}
+        
+        {% if page.path != "index.html" %}
+        <p class="tag-footer">
+        <strong>Tagged:</strong> {{ page.tags | array_to_sentence_string }}
+        </p>
+        {% endif %}
       </div>
       <div class="span3">
         <h3>Meetups I'm involved with</h3>
