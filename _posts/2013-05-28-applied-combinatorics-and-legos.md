@@ -94,9 +94,9 @@ What conclusions did I draw from my simulations?
 
 * It will take about 54 purchases, or $162, on average to collect a complete set of all 16 minifigs.
   * Going to eBay and buying each fig for $7 each is actually cheaper, with a total cost of around $112.
-* If I switch to eBay purchasing after collecting 9 figures, I will optimize my total cost down to ~ $57.
+* If I switch to eBay purchasing after collecting 9 figures, I will optimize my total cost down to ~ $90.
 
-$3.56 / figure is pretty good considering a starting cost of $3 for a random selection!
+$5.63 / figure is pretty good considering a starting cost of $3 for a random selection!
 
 #### Addendum
 As one meetup member pointed out, I am not assigning any value to duplicates that we collect.  Honestly that's mainly a factor of my son being little and losing his toys all over the house, so duplicates are good for spare parts :)
