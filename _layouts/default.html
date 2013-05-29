@@ -48,7 +48,6 @@
         <p class="tag-footer">
         <strong>Tagged:</strong> {{ page.tags | array_to_sentence_string }}
         </p>
-        {% endif %}
 
         <div class="well">
           <a class="socialite twitter-share" href="http://twitter.com/share" data-url="http://stetzer.github.io{{ page.url }}">
@@ -61,6 +60,8 @@
             +1 on Google+
           </a>
         </div>
+        {% endif %}
+
       </div>
       <div class="span3">
         <h3>Meetups I'm involved with</h3>
