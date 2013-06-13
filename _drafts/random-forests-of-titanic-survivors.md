@@ -36,9 +36,7 @@ Since this is meant as a training project, Kaggle provides some introductory adv
 * Observe the error estimate from the forest model
 * If everything looks good, produce predictions for the Kaggle-provided test set, and write them in Kaggle's preferred output format
 
-Here's the code that performs the steps listed above.  We'll discuss what the code is doing below.
-
-{% gist 5773202 %}
+Let's discuss the code we'll write block by block, then I'll provide the entirety as a gist.
 
 The first few lines are very pedestrian; we read the file in and set column types.
 
@@ -108,7 +106,7 @@ TRUE    123  217  0.36176471
 
 What the console is telling us here is that we are building a _classification_ type of random forest (as opposed to a [regression](http://en.wikipedia.org/wiki/Regression_analysis)).  We are building 500 (the default) trees in our forest.  The model's estimate is that our [OOB (out-of-bag) error rate](http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm#ooberr) is 18.56%.  You will notice that unlike other machine learning techniques like a linear regression, we don't need to separate our training data into training and test data to determine approximate error rate; the properties of the model (namely that only a subset of information is used to train each tree) are such that we can use remaining test cases from each training set to test the overall model.  Also worth noting is the [confusion matrix](http://en.wikipedia.org/wiki/Confusion_matrix) of the model's estimate: apparently we are very good at predicting when someone did not survive (~ 92.3% accuracy), but need some work in predicting when someone survived (~ 63.8% accuracy).
 
-Now we load the real test data from Kaggle without any survivorship data, and run it through our trained model.
+Now we load the real test data from Kaggle without any survivorship data, and run it through our trained model.  Nothing to really note here.
 
 ``` r
 # And load Kaggle's test data
@@ -122,7 +120,7 @@ testdata <- prepFeatures(testdata)
 prediction <- predict(model, newdata=testdata, type="class")
 ```
 
-Nothing to really note here.  Finally, Kaggle wants to see predictions as a single file with a header line, followed by a series of 1's and 0's indicating survivorship.  We'll write these by using R's _write.table_ function, but first we have to coalesce the logical values into integers.  We do that with a neat little trick by adding 0 to their logical values.
+Finally, Kaggle wants to see predictions as a single file with a header line, followed by a series of 1's and 0's indicating survivorship.  We'll write these by using R's _write.table_ function, but first we have to coalesce the logical values into integers.  We do that with a neat little trick by adding 0 to their logical values.
 
 ``` r
 # And let's write our prediction results
@@ -133,6 +131,9 @@ out.frame[which(is.na(out.frame$survived)),] = 0
  
 write.table(out.frame, file="~/code-projects/kaggle/titanic/prediction.tsv", sep=",", quote=FALSE, col.names=TRUE, row.names=FALSE)
 ```
+
+Here's that code as a complete gist:
+{% gist 5773202 %}
 
 Now we've got a file that's in Kaggle's preferred format, ready for submission to be graded!  Let's see how we did:
 
