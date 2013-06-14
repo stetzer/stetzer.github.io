@@ -139,7 +139,7 @@ Here's that code as a complete gist:
 
 Now we've got a file that's in Kaggle's preferred format, ready for submission to be graded!  Let's see how we did:
 
-![Kaggle Titanic Leaderboard Snippet](/images/random-forests-of-titanic-survivors/kaggle-titanic-leaderboard.png)
+![Kaggle Titanic Leaderboard Snippet](/images/2013-06-14-random-forests-of-titanic-survivors/kaggle-titanic-leaderboard.png)
 
 Not bad for ~ 50 lines of code!  In a very short time, we were able to build a quick model that can predict Titanic survivorship based on a few details about the passengers, with ~ 78% accuracy!  Turns out this is also the same accuracy the Kaggle-suggested first model achieves; they also used a basic random forests approach.
 
