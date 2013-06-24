@@ -18,17 +18,38 @@ Let's take Spark for a test drive so I can show you how it performs.
 If you want to follow along, I'm assuming you've already [followed the steps to set up a Spark environment](http://spark-project.org/docs/latest/).  Let's start by downloading some a public dataset and performing some basic computations locally.  I've chosen [Google's Wikilinks corpus](http://googleresearch.blogspot.com/2013/03/learning-from-big-data-40-million.html); a set of about 5.5 GB worth of references to English Wikipedia pages.  The format of these (extracted) files looks like:
 
 ```
-URL ftp://212.18.29.48/ftp/pub/allnet/nas/all60300/ALL60300_UM_V12_EN.pdf
-MENTION r NetBIOS 176937  http://en.wikipedia.org/wiki/NetBIOS
-TOKEN acting  304940
-TOKEN whose 247626
-TOKEN capabilities  70039
-TOKEN ME  201398
-TOKEN calls 514390
-TOKEN preferably  346689
-TOKEN functionality 358183
-TOKEN anything  7034
-TOKEN boost 508294
-TOKEN enjoying  211878
+URL     ftp://38.107.129.5/Training/Training%20Documentation/Latitude%20V6.2%20Training%20Binder/06%20Latitude%206%202%20Release%20Notes_Build%2027.pdf
+MENTION Microsoft       80679   http://en.wikipedia.org/wiki/Microsoft
+MENTION Microsoft       134415  http://en.wikipedia.org/wiki/Microsoft
+MENTION Windows Server 2008     80862   http://en.wikipedia.org/wiki/Windows_Server_2008
+MENTION Windows Server 2008     134744  http://en.wikipedia.org/wiki/Windows_Server_2008
+MENTION Windows 7       81028   http://en.wikipedia.org/wiki/Windows_7
+MENTION Windows 7       134910  http://en.wikipedia.org/wiki/Windows_7
+MENTION operating systems.      81109   http://en.wikipedia.org/wiki/Operating_system
+MENTION Windows Vista   134573  http://en.wikipedia.org/wiki/Windows_Vista
+TOKEN   Fresh   54828
+TOKEN   evidence        32081
+TOKEN   Allow   72597
+TOKEN   operator        148693
+TOKEN   notice  507684
+TOKEN   save    77567
+TOKEN   subfolder       154988
+TOKEN   PELCO   490470
+TOKEN   crashed 301434
+TOKEN   audit   296060
 ```
 
+Let's use Spark and Scala to do something rather trivial: extract the mentioned terms in the entire Wikilinks corpus, count them, and show the top-mentioned terms.  Here's the code to do just that:
+
+```scala
+val lines = sc.textFile("<some path>/data*")
+val mentions = lines.filter(l => l.startsWith("MENTION"))
+val counts = mentions.map{l => val txt = l.split("\t")(1); (txt, 1)}.reduceByKey((a, b) => a + b)
+val sorted = counts.map{case (k, v) => (v, k)}.sortByKey(false, 8)
+sorted.take(20)
+```
+
+Which provides the following (trimmed) output:
+```
+res0: Array[(Int, java.lang.String)] = Array((79855,Flickr), (65797,stub), (45246,United States), (31134,India), (29295,World War II), (28053,God), (23862,public domain), (21108,2007), (20882,disambiguation), (20697,GNU Free Documentation License), (20202,Europe), (18782,Canada), (18621,US state), (18407,Wikipedia:Public domain), (18405,Copyright), (17842,publication), (17647,London), (17631,Japan), (17411,France), (17207,United States Postal Service))
+```
