@@ -46,10 +46,20 @@ val lines = sc.textFile("<some path>/data*")
 val mentions = lines.filter(l => l.startsWith("MENTION"))
 val counts = mentions.map{l => val txt = l.split("\t")(1); (txt, 1)}.reduceByKey((a, b) => a + b)
 val sorted = counts.map{case (k, v) => (v, k)}.sortByKey(false, 8)
-sorted.take(20)
+sorted.take(10).foreach(println _)
 ```
 
 Which provides the following (trimmed) output:
+
 ```
-res0: Array[(Int, java.lang.String)] = Array((79855,Flickr), (65797,stub), (45246,United States), (31134,India), (29295,World War II), (28053,God), (23862,public domain), (21108,2007), (20882,disambiguation), (20697,GNU Free Documentation License), (20202,Europe), (18782,Canada), (18621,US state), (18407,Wikipedia:Public domain), (18405,Copyright), (17842,publication), (17647,London), (17631,Japan), (17411,France), (17207,United States Postal Service))
+(79855,Flickr)
+(65797,stub)
+(45246,United States)
+(31134,India)
+(29295,World War II)
+(28053,God)
+(23862,public domain)
+(21108,2007)
+(20882,disambiguation)
+(20697,GNU Free Documentation License)
 ```
