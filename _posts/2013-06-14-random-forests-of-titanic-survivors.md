@@ -4,7 +4,7 @@ title: Random Forests of Titanic Survivors
 tags: R random-forests kaggle data-science titanic
 ---
 
-The other day I realized I've told countless people about [Kaggle](http://www.kaggle.com/), but I've never actually participated in a competition.  I've always imagined that if I entered a competition, it would consume a good portion of my time and I'd start neglecting other duties.  That said, I decided to enter one this past weekend.  (I'm envisioning my entry like the start of any _Quantum Leap_ episode: "Theorizing that one could time travel within his own lifetime, Dr. Sam Beckett stepped into the Quantum Leap accelerator and vanished.".  Except my version is doesn't involve quantum anything, and while Sam looks like he's talking to himself but he's really talking to Al, I'm just talking to myself.)
+The other day I realized I've told countless people about [Kaggle](http://www.kaggle.com/), but I've never actually participated in a competition.  I've always imagined that if I entered a competition, it would consume a good portion of my time and I'd start neglecting other duties.  That said, I decided to enter one this past weekend.  (I'm envisioning my entry like the start of any _Quantum Leap_ episode: "Theorizing that one could time travel within his own lifetime, Dr. Sam Beckett stepped into the Quantum Leap accelerator and vanished.".  Except my version doesn't involve quantum anything, and while Sam looks like he's talking to himself but he's really talking to Al, I'm just talking to myself.)
 
 <div class="text-center">
   <img src="http://www.staffingdaily.com/wp-content/uploads/2013/04/full-quantum-leap-screenshot.jpg" alt="Stepping into the Quantum Leap accelerator" style="width: 300px; margin-bottom: 20px;"/>
